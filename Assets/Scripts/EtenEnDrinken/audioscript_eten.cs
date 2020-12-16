@@ -40,8 +40,9 @@ public class audioscript_eten : MonoBehaviour
 
         anim = GameObject.Find("fader");
         animD = GameObject.Find("Baxter");
-        fadeout = anim.GetComponent<Animator>();
         animations = animD.GetComponent<Animator>();
+        fadeout = anim.GetComponent<Animator>();
+
         fadeout.Play("FadeIn");
 
 
@@ -94,6 +95,12 @@ public class audioscript_eten : MonoBehaviour
         {
             introAudio.PlayOneShot(bier);
             stopcor4 = false;
+        }
+
+        if (bottledestroyed == false)
+        {
+            fadeout.Play("FadeOut");
+            SceneManager.LoadScene(9);
         }
 
         yield return null;

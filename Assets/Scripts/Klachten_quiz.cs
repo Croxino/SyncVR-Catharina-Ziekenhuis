@@ -205,50 +205,5 @@ public class Klachten_quiz : MonoBehaviour
 
     }
 
-    //    if (answerB == true)
-    //    {
-
-    //        if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = laxeermiddelen)
-    //        {
-
-    //            if (receiveAnswer == 9 && audioecho == true)
-    //            {
-    //                quizBoard.GetComponent<Renderer>().materials[1].mainTexture = ontlasting;
-    //                answerA = true;
-    //                answerB = true;
-    //                answerC = true;
-    //                mainAudio.PlayOneShot(ontlastingQuiz);
-    //                audioecho = false;
-
-
-    //            }
-
-
-    //        }
-    //    }
-
-    //    if (answerB == true)
-    //    {
-
-    //        if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = ontlasting)
-    //        {
-
-    //            if (receiveAnswer == 9 && audioecho2 == true)
-    //            {
-    //                quizBoard.GetComponent<Renderer>().materials[1].mainTexture = misselijk;
-    //                answerA = true;
-    //                answerB = true;
-    //                answerC = true;
-    //                mainAudio.PlayOneShot(misselijkQuiz);
-    //                audioecho2 = false;
-
-
-    //            }
-
-
-    //        }
-    //    }
-
-    //    
-    //}
+ 
 }
