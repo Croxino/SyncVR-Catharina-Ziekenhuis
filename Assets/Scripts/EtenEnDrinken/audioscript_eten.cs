@@ -75,7 +75,6 @@ public class audioscript_eten : MonoBehaviour
             introAudio.PlayOneShot(welkom);
 
             stopcor = false;
-         
 
         }
 

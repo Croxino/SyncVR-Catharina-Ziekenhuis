@@ -20,7 +20,6 @@ public class Audioscript : MonoBehaviour
     private bool test = true;
     private bool stopflash = true;
     private bool clonedestroyed = true;
-    public Image _image;
     public int flashscreen = 3;
     public Renderer baxter;
     public Material glucosegevaar;
@@ -32,29 +31,38 @@ public class Audioscript : MonoBehaviour
     private bool quiz = true;
     public GameObject quizboard;
     public GameObject headhit;
+    public int receiveAnswer;
+    public AudioClip welkom;
+
+    public GameObject fader;
+    private GameObject anim;
+    private GameObject animD;
+    private Animator fadeout;
+    private Animator animations;
 
 
-    private void Awake()
-    {
-
-    }
     // Start is called before the first frame update
     void Start()
     {
         introAudio = GetComponent<AudioSource>();
         introAudio.PlayDelayed(delay);
-        //Debug.Log(baxter.GetComponent<MeshRenderer>().sharedMaterials[4]);
 
+        anim = GameObject.Find("fader");
+        animD = GameObject.Find("Baxter");
+        animations = animD.GetComponent<Animator>();
+        fadeout = anim.GetComponent<Animator>();
 
         baxter.GetComponent<Renderer>();
-        //Debug.Log(glucosegevaar);
+        fadeout.Play("FadeIn");
 
     }
 
     private void Update()
     {
+        receiveAnswer = Pvr_ControllerDemo.answerholder;
         StartCoroutine("PlayAudio");
         StartCoroutine("FlashScreen");
+        StartCoroutine("correctAnswer");
 
         if (calltodestroy == false && stopflash == true && test == false)
         {
@@ -64,10 +72,39 @@ public class Audioscript : MonoBehaviour
 
 
         StartCoroutine("PlayPain");
-        //StartCoroutine("PlayvitamineQuiz");
+
+        //if (introAudio.isPlaying)
+        //{
+        //    animations.Play("talking");
+        //}
+        //else
+        if (!introAudio.isPlaying)
+        {
+           animations.Play("Idle");
+        }
     }
 
+    IEnumerator correctAnswer() 
+    {
+        if (stopcor == true)
+        {
+            introAudio.PlayOneShot(welkom);
 
+            stopcor = false;
+            animations.Play("talking");
+        }
+
+        if (receiveAnswer == 8)
+        {
+            animations.Play("Happy");
+            yield return new WaitForSeconds(1.5f);
+            animations.Play("talking");
+
+
+        }
+
+        yield return null;
+    }
 
     IEnumerator PlayAudio()
     {

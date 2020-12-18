@@ -106,7 +106,7 @@ public class Eten_quiz : MonoBehaviour
 
 
 
-                    yield return new WaitForSeconds(11.0f);
+                    yield return new WaitForSeconds(9.0f);
                     question2 = true;
                     quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol;
 
@@ -142,8 +142,9 @@ public class Eten_quiz : MonoBehaviour
                 {
 
                     audioecho3 = false;
-                    animations.Play("Happy");
+
                     yield return new WaitForSeconds(2.0f);
+
                     mainAudio.PlayOneShot(audienceClap, 0.7F);
                     mainAudio.PlayOneShot(eindemodule);
                     Confetti.SetActive(true);
@@ -158,7 +159,9 @@ public class Eten_quiz : MonoBehaviour
                     AnswerA.GetComponent<MeshCollider>().enabled = false;
                     AnswerB.GetComponent<MeshCollider>().enabled = false;
                     AnswerC.GetComponent<MeshCollider>().enabled = false;
-
+                    animations.Play("Happy");
+                    yield return new WaitForSeconds(4.5f);
+                    animations.Play("talking");
                 }
 
             }

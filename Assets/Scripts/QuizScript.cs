@@ -24,8 +24,17 @@ public class QuizScript : MonoBehaviour
     public AudioClip paracetamol;
     public AudioClip eindemodule;
     public AudioClip foutantwoord;
+
     public GameObject Confetti;
     public GameObject quizboard;
+
+    private bool stopcor = true;
+
+
+    private GameObject animD;
+
+    private Animator animations;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +43,9 @@ public class QuizScript : MonoBehaviour
         Confetti = GameObject.Find("Confetti");
         Confetti.SetActive(false);
         mainAudio = GetComponent<AudioSource>();
+
+        animD = GameObject.Find("Baxter");
+        animations = animD.GetComponent<Animator>();
 
         // quizBoard.GetComponent<Renderer>().materials[1].mainTexture = vitamineQuiz;
 
@@ -46,14 +58,15 @@ public class QuizScript : MonoBehaviour
         receiveAnswer = Pvr_ControllerDemo.answerholder;
         Debug.Log("Holding answer " + receiveAnswer);
 
-        Quiz();
+        StartCoroutine("Quiz");
 
     }
 
 
 
-    private void Quiz()
+    IEnumerator Quiz()
     {
+
 
         if (answerA == false)
         {
@@ -132,5 +145,6 @@ public class QuizScript : MonoBehaviour
               
             }
         }
+        yield return null;
     }
 }
