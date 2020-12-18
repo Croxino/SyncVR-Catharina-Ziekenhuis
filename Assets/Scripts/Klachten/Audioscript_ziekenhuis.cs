@@ -16,9 +16,10 @@ public class Audioscript_ziekenhuis : MonoBehaviour
     public GameObject fader;
     private GameObject anim;
     private GameObject animD;
+    private GameObject animC;
     private Animator fadeout;
     private Animator dizziness;
-
+    private Animator animations;
 
 
 
@@ -34,6 +35,8 @@ public class Audioscript_ziekenhuis : MonoBehaviour
         dizziness = animD.GetComponent<Animator>();
         fadeout.Play("FadeIn");
 
+        animC = GameObject.Find("Baxter");
+        animations = animC.GetComponent<Animator>();
 
 
     }
@@ -53,8 +56,8 @@ public class Audioscript_ziekenhuis : MonoBehaviour
         {
             introAudio.PlayOneShot(dizzy);
             stopcor = false;
-            //fadeout.Play("FadeOut");
-            
+            animations.Play("talking");
+
             yield return new WaitForSeconds(6.0f);
             dizziness.Play("dizziness");
             yield return new WaitForSeconds(3.0f);
@@ -66,6 +69,7 @@ public class Audioscript_ziekenhuis : MonoBehaviour
         if (!introAudio.isPlaying)
         {
             fadeout.Play("FadeOut");
+            yield return new WaitForSeconds(3.0f);
             SceneManager.LoadScene(3);
         }
         yield return null;

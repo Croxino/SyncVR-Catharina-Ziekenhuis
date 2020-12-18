@@ -13,6 +13,8 @@ public class Audioscript_spoelbak : MonoBehaviour
     private GameObject anim;
     private Animator fadeout;
 
+    private GameObject animD;
+    private Animator animations;
 
 
 
@@ -27,6 +29,8 @@ public class Audioscript_spoelbak : MonoBehaviour
 
         fadeout.Play("FadeIn");
 
+        animD = GameObject.Find("Baxter");
+        animations = animD.GetComponent<Animator>();
 
 
     }
@@ -46,15 +50,15 @@ public class Audioscript_spoelbak : MonoBehaviour
         {
             introAudio.PlayOneShot(intro);
             stopcor = false;
-            //fadeout.Play("FadeOut");
 
+            animations.Play("talking");
         }
 
         if (!introAudio.isPlaying)
         {
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(4.0f);
             fadeout.Play("FadeOut");
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(3.0f);
 
             SceneManager.LoadScene(6);
         }

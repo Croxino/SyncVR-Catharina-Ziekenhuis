@@ -91,81 +91,87 @@ public class Eten_quiz : MonoBehaviour
 
     IEnumerator Quiz()
     {
-
-        if (question1 == false)
+        if (!mainAudio.isPlaying)
         {
-            if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = fosfaat)
+            if (question1 == false)
             {
-                if (receiveAnswer == 9 && audioecho1 == true)
+                if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = fosfaat)
                 {
-                    mainAudio.PlayOneShot(fosfaatGoed);
-                    audioecho1 = false;
-                    animations.Play("Happy");
-                    yield return new WaitForSeconds(1.5f);
-                    animations.Play("talking");
+                    if (receiveAnswer == 9 && audioecho1 == true)
+                    {
+                        mainAudio.PlayOneShot(fosfaatGoed);
+                        audioecho1 = false;
+                        animations.Play("Happy");
+                        yield return new WaitForSeconds(1.5f);
+                        animations.Play("talking");
 
 
 
-                    yield return new WaitForSeconds(9.0f);
-                    question2 = true;
-                    quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol;
+                        yield return new WaitForSeconds(9.0f);
+                        question2 = true;
+                        quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol;
 
 
 
+
+                    }
 
                 }
-
             }
         }
 
 
-        if (question2 == true)
+        if (!mainAudio.isPlaying)
         {
-
-            if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol)
+            if (question2 == true)
             {
 
-                if (receiveAnswer == 8 && audioecho2 == true)
+                if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol)
                 {
 
+                    if (receiveAnswer == 8 && audioecho2 == true)
+                    {
 
-                    audioecho2 = false;
+
+                        audioecho2 = false;
 
 
-                    mainAudio.PlayOneShot(alcoholGoed);
-                    animations.Play("Happy");
-                    yield return new WaitForSeconds(1.5f);
-                    animations.Play("talking");
+                        mainAudio.PlayOneShot(alcoholGoed);
+                        animations.Play("Happy");
+                        yield return new WaitForSeconds(1.5f);
+                        animations.Play("talking");
+
+                    }
+                    if (receiveAnswer == 8 && !mainAudio.isPlaying && audioecho3 == true)
+                    {
+
+                        audioecho3 = false;
+
+                        yield return new WaitForSeconds(2.0f);
+
+                        mainAudio.PlayOneShot(audienceClap, 0.7F);
+                        mainAudio.PlayOneShot(eindemodule);
+                        Confetti.SetActive(true);
+                        quizboard.GetComponent<MeshRenderer>().enabled = false;
+                        quizboard.GetComponent<MeshCollider>().enabled = false;
+                        var AnswerA = GameObject.Find("AnswerA");
+                        var AnswerB = GameObject.Find("AnswerB");
+                        var AnswerC = GameObject.Find("AnswerC");
+                        AnswerA.GetComponent<MeshRenderer>().enabled = false;
+                        AnswerB.GetComponent<MeshRenderer>().enabled = false;
+                        AnswerC.GetComponent<MeshRenderer>().enabled = false;
+                        AnswerA.GetComponent<MeshCollider>().enabled = false;
+                        AnswerB.GetComponent<MeshCollider>().enabled = false;
+                        AnswerC.GetComponent<MeshCollider>().enabled = false;
+                        animations.Play("Happy");
+                        yield return new WaitForSeconds(4.5f);
+                        animations.Play("talking");
+                    }
 
                 }
-                if (receiveAnswer == 8 && !mainAudio.isPlaying && audioecho3 == true)
-                {
-
-                    audioecho3 = false;
-
-                    yield return new WaitForSeconds(2.0f);
-
-                    mainAudio.PlayOneShot(audienceClap, 0.7F);
-                    mainAudio.PlayOneShot(eindemodule);
-                    Confetti.SetActive(true);
-                    quizboard.GetComponent<MeshRenderer>().enabled = false;
-                    quizboard.GetComponent<MeshCollider>().enabled = false;
-                    var AnswerA = GameObject.Find("AnswerA");
-                    var AnswerB = GameObject.Find("AnswerB");
-                    var AnswerC = GameObject.Find("AnswerC");
-                    AnswerA.GetComponent<MeshRenderer>().enabled = false;
-                    AnswerB.GetComponent<MeshRenderer>().enabled = false;
-                    AnswerC.GetComponent<MeshRenderer>().enabled = false;
-                    AnswerA.GetComponent<MeshCollider>().enabled = false;
-                    AnswerB.GetComponent<MeshCollider>().enabled = false;
-                    AnswerC.GetComponent<MeshCollider>().enabled = false;
-                    animations.Play("Happy");
-                    yield return new WaitForSeconds(4.5f);
-                    animations.Play("talking");
-                }
-
             }
         }
+        
         yield return null;
 
     }

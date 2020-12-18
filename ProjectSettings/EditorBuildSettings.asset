@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Medicatie/Medicatie.unity
     guid: 18f52a863df9d3e46a17cb0881cf8afe
+  - enabled: 1
+    path: Assets/Scenes/Eten en Drinken/EtenDrinken.unity
+    guid: 22d11876b34afd24d92d7154b36e82ec
+  - enabled: 1
+    path: Assets/Scenes/Eten en Drinken/EtenDrinkenQuiz.unity
+    guid: 68e4d9c1c9c883343a9e92f06014180e
   m_configObjects: {}

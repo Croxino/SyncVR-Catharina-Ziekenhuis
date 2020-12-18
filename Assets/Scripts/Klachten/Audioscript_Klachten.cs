@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Audioscript_Klachten : MonoBehaviour
 {
     AudioSource introAudio;
-    public float delay;
+
 
     public bool calltodestroy;
     public AudioClip meds;
@@ -24,19 +24,27 @@ public class Audioscript_Klachten : MonoBehaviour
     public float speed = 0.5f;
     public float smooth = 0.5f;
 
+    private Animator animations;
+    private GameObject animD;
+
 
     // Start is called before the first frame update
     void Start()
     {
         introAudio = GetComponent<AudioSource>();
-        introAudio.PlayDelayed(delay);
+
         //Debug.Log(baxter.GetComponent<MeshRenderer>().sharedMaterials[4]);
 
-        anim = GameObject.Find("fader");
-        fadeout = anim.GetComponent<Animator>();
+
         des = new Vector3(-2f, 0.4f, 4f);
         desrot = Quaternion.Euler(0, -40, 0);
 
+        animD = GameObject.Find("Baxter");
+        animations = animD.GetComponent<Animator>();
+
+        anim = GameObject.Find("fader");
+        fadeout = anim.GetComponent<Animator>();
+        fadeout.Play("FadeIn");
 
 
     }
@@ -49,15 +57,15 @@ public class Audioscript_Klachten : MonoBehaviour
         Debug.Log("received " + receiveAnswer);
 
 
-        //StartCoroutine("PlayFlush");
-        //StartCoroutine("PlayvitamineQuiz");
+
         StartCoroutine("PlayWelcome");
         StartCoroutine("SmoothMove");
         StartCoroutine("Medicatie");
-        //StartCoroutine("FadeOut");
 
-
-        //baxter.transform.position = new Vector3 (-1.921f,0.036f, 1.528f);
+        if (!introAudio.isPlaying)
+        {
+            animations.Play("Idle");
+        }
 
     }
 
@@ -67,6 +75,7 @@ public class Audioscript_Klachten : MonoBehaviour
         {
             introAudio.PlayOneShot(intro);
             stopcor = false;
+            animations.Play("talking");
         }
         
         if (!introAudio.isPlaying && stopcor2 == true)
@@ -74,7 +83,8 @@ public class Audioscript_Klachten : MonoBehaviour
 
             introAudio.PlayOneShot(meds);
             stopcor2 = false;
-            
+            animations.Play("talking");
+
         }
 
             yield return null;
@@ -91,7 +101,7 @@ public class Audioscript_Klachten : MonoBehaviour
             fadeout.Play("FadeOut");
 
 
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(3.0f);
             SceneManager.LoadScene(2);
         }
     }
@@ -103,6 +113,7 @@ public class Audioscript_Klachten : MonoBehaviour
         yield return new WaitForSeconds(15.0f);
         baxter.transform.position = Vector3.Lerp(baxter.transform.position, des, Time.deltaTime * speed);
         baxter.transform.rotation = Quaternion.Slerp(baxter.transform.rotation, desrot, Time.deltaTime * smooth);
+        animations.Play("talking");
 
         yield return null;
     }

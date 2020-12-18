@@ -13,6 +13,8 @@ public class Audioscript_keuken : MonoBehaviour
     private GameObject anim;
     private Animator fadeout;
 
+    private GameObject animD;
+    private Animator animations;
 
 
 
@@ -27,7 +29,8 @@ public class Audioscript_keuken : MonoBehaviour
 
         fadeout.Play("FadeIn");
 
-
+        animD = GameObject.Find("Baxter");
+        animations = animD.GetComponent<Animator>();
 
     }
 
@@ -46,7 +49,7 @@ public class Audioscript_keuken : MonoBehaviour
         {
             introAudio.PlayOneShot(intro);
             stopcor = false;
-            //fadeout.Play("FadeOut");
+            animations.Play("talking");
 
         }
 
