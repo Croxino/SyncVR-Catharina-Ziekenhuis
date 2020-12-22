@@ -63,6 +63,10 @@ public class Pvr_ControllerDemo : MonoBehaviour
     private Material klachten;
     [SerializeField]
     private Material klachtenSel;
+    [SerializeField]
+    private Material eten;
+    [SerializeField]
+    private Material etenSel;
     private bool noClick;
     GameObject referenceObj;
     public float rayDefaultLength = 4;
@@ -560,8 +564,10 @@ public class Pvr_ControllerDemo : MonoBehaviour
                             hit.transform.GetComponent<Renderer>().material = medicatieSel;
                         }
                         var meds = GameObject.Find("Klachten");
+                        var food = GameObject.Find("Eten en Drinken");
 
                         meds.transform.GetComponent<Renderer>().material = klachten;
+                        food.transform.GetComponent<Renderer>().material = eten;
 
                         Debug.Log(hit.transform.gameObject.layer);
 
@@ -591,8 +597,10 @@ public class Pvr_ControllerDemo : MonoBehaviour
                             hit.transform.GetComponent<Renderer>().material = klachtenSel;
                         }
                         var klacht = GameObject.Find("Medicatie");
+                        var food = GameObject.Find("Eten en Drinken");
 
                         klacht.transform.GetComponent<Renderer>().material = medicatie;
+                        food.transform.GetComponent<Renderer>().material = eten;
 
                         Debug.Log(hit.transform.gameObject.layer);
 
@@ -611,6 +619,39 @@ public class Pvr_ControllerDemo : MonoBehaviour
                             dragObj.position = new Vector3(referenceObj.transform.position.x + disX, referenceObj.transform.position.y + disY, hit.transform.position.z);
                             Debug.Log(dragObj.transform.position.z);
                             SceneManager.LoadScene(1);
+                        }
+
+                    }
+
+                    if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("eten"))
+                    {
+                        if (!noClick)
+                        {
+                            hit.transform.GetComponent<Renderer>().material = etenSel;
+                        }
+                        var klacht = GameObject.Find("Medicatie");
+                        var meds = GameObject.Find("Klachten");
+
+                        meds.transform.GetComponent<Renderer>().material = klachten;
+                        klacht.transform.GetComponent<Renderer>().material = medicatie;
+
+                        Debug.Log(hit.transform.gameObject.layer);
+
+
+
+                        if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
+                        {
+                            referenceObj.transform.position = hit.point;
+
+                            disX = hit.transform.position.x - referenceObj.transform.position.x;
+                            disY = hit.transform.position.y - referenceObj.transform.position.y;
+                            dragObj = hit.transform;
+
+                            referenceObj.transform.position = new Vector3(hit.point.x, hit.point.y, hit.transform.position.z);
+
+                            dragObj.position = new Vector3(referenceObj.transform.position.x + disX, referenceObj.transform.position.y + disY, hit.transform.position.z);
+                            Debug.Log(dragObj.transform.position.z);
+                            SceneManager.LoadScene(8);
                         }
 
                     }
