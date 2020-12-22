@@ -36,7 +36,7 @@ public class Audioscript_Klachten : MonoBehaviour
         //Debug.Log(baxter.GetComponent<MeshRenderer>().sharedMaterials[4]);
 
 
-        des = new Vector3(-2f, 0.4f, 4f);
+        des = new Vector3(-2f, 0.4f, 2.9f);
         desrot = Quaternion.Euler(0, -40, 0);
 
         animD = GameObject.Find("Baxter");
@@ -110,7 +110,7 @@ public class Audioscript_Klachten : MonoBehaviour
 
     IEnumerator SmoothMove()
     {
-        yield return new WaitForSeconds(15.0f);
+        //yield return new WaitForSeconds(15.0f);
         baxter.transform.position = Vector3.Lerp(baxter.transform.position, des, Time.deltaTime * speed);
         baxter.transform.rotation = Quaternion.Slerp(baxter.transform.rotation, desrot, Time.deltaTime * smooth);
         animations.Play("talking");
