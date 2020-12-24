@@ -13,14 +13,9 @@ public class Quiz_Klachten : MonoBehaviour
     public Texture laxeermiddelen;
     public Texture ontlasting;
 
-    public bool question1 = false;
-    public bool question2 = false;
-    public bool question3 = false;
-    public bool question4 = false;
-    private bool echo = true;
-    private bool echo1 = true;
-    private bool echo2 = true;
-    private bool echo3 = true;
+    public int currentQuestion = 0;
+
+
     private bool audioecho = true;
     private bool audioecho1 = true;
     private bool audioecho2 = true;
@@ -32,6 +27,7 @@ public class Quiz_Klachten : MonoBehaviour
     public AudioClip intro;
     public int receiveAnswer;
 
+
     public AudioClip tablettenQuiz;
     public AudioClip goedtabletten;
     public AudioClip laxeerQuiz;
@@ -42,6 +38,8 @@ public class Quiz_Klachten : MonoBehaviour
     public AudioClip goedmisselijk;
     public AudioClip audienceClap;
     public AudioClip eindemodule;
+    public AudioClip foutantwoord;
+
     public GameObject Confetti;
     public GameObject quizboard;
     private GameObject animD;
@@ -65,16 +63,55 @@ public class Quiz_Klachten : MonoBehaviour
         animD = GameObject.Find("Baxter");
         animations = animD.GetComponent<Animator>();
         fadeout.Play("FadeIn");
+
+
     }
 
     private void Update()
     {
 
         receiveAnswer = Pvr_ControllerDemo.answerholder;
+
         StartCoroutine("playStart");
         StartCoroutine("Quiz");
+
+        if (!mainAudio.isPlaying)
+        {
+            Pvr_ControllerDemo.answerholder = 0;
+
+        }
     }
 
+    private void WrongAnswer()
+    {
+        mainAudio.PlayOneShot(foutantwoord);
+        animations.Play("Wrong");
+        Pvr_ControllerDemo.answerholder = 0;
+
+    }
+
+    private void StartNextQuestion()
+    {
+        currentQuestion++;
+        switch (currentQuestion)
+        {
+            case 1:
+                mainAudio.PlayOneShot(tablettenQuiz);
+                break;
+            case 2:
+                mainAudio.PlayOneShot(laxeerQuiz);
+                break;
+            case 3:
+                mainAudio.PlayOneShot(ontlastingQuiz);
+                break;
+            case 4:
+                mainAudio.PlayOneShot(misselijkQuiz);
+                break;
+            default:
+                break;
+        }
+        animations.Play("talking");
+    }
 
 
     IEnumerator playStart()
@@ -82,6 +119,7 @@ public class Quiz_Klachten : MonoBehaviour
         if (!mainAudio.isPlaying)
         {
             animations.Play("Idle");
+
         }
 
 
@@ -93,46 +131,21 @@ public class Quiz_Klachten : MonoBehaviour
             animations.Play("talking");
             yield return new WaitForSeconds(6.0f);
             quizboard.SetActive(true);
-
+            StartNextQuestion();
 
         }
-
-
-        if (quizboard.activeSelf == true && echo == true)
-        {
-            mainAudio.PlayOneShot(tablettenQuiz);
-            echo = false;
-            animations.Play("talking");
-        }
-        if (!mainAudio.isPlaying && question2 == true && echo1 == true)
-        {
-            mainAudio.PlayOneShot(laxeerQuiz);
-            echo1 = false;
-            animations.Play("talking");
-        }
-
-        if (!mainAudio.isPlaying && question3 == true && echo2 == true)
-        {
-            mainAudio.PlayOneShot(ontlastingQuiz);
-            echo2 = false;
-            animations.Play("talking");
-        }
-        if (!mainAudio.isPlaying && question4 == true && echo3 == true)
-        {
-            mainAudio.PlayOneShot(misselijkQuiz);
-            echo3 = false;
-            animations.Play("talking");
-        }
-
         yield return null;
 
     }
 
     IEnumerator Quiz()
     {
+
+
+
         if (!mainAudio.isPlaying)
         {
-            if (question1 == false)
+            if (currentQuestion == 1)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = tabletten)
                 {
@@ -145,21 +158,22 @@ public class Quiz_Klachten : MonoBehaviour
                         animations.Play("talking");
 
                         yield return new WaitForSeconds(13.0f);
-                        question2 = true;
+                        StartNextQuestion();
+
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = laxeermiddelen;
-
-
-
-
                     }
-
+                    
+                    if (receiveAnswer == 10 || receiveAnswer == 9)
+                    {
+                        WrongAnswer();
+                    }
                 }
             }
         }
 
         if (!mainAudio.isPlaying)
         {
-            if (question2 == true)
+            if (currentQuestion == 2)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = laxeermiddelen)
                 {
@@ -172,10 +186,17 @@ public class Quiz_Klachten : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
                         yield return new WaitForSeconds(8.0f);
-                        question3 = true;
+                        StartNextQuestion();
+
 
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = ontlasting;
 
+
+                    }
+
+                    if (receiveAnswer == 8 || receiveAnswer == 9)
+                    {
+                        WrongAnswer();
                     }
                 }
             }
@@ -183,7 +204,7 @@ public class Quiz_Klachten : MonoBehaviour
 
         if (!mainAudio.isPlaying)
         {
-            if (question3 == true)
+            if (currentQuestion == 3)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = ontlasting)
                 {
@@ -196,9 +217,14 @@ public class Quiz_Klachten : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
                         yield return new WaitForSeconds(10.0f);
-                        question4 = true;
+                        StartNextQuestion();
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = misselijk;
 
+                    }
+
+                    if (receiveAnswer == 10 || receiveAnswer == 9)
+                    {
+                        WrongAnswer();
                     }
                 }
             }
@@ -206,7 +232,7 @@ public class Quiz_Klachten : MonoBehaviour
 
         if (!mainAudio.isPlaying)
         {
-            if (question4 == true)
+            if (currentQuestion == 4)
             {
 
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = misselijk)
@@ -214,11 +240,7 @@ public class Quiz_Klachten : MonoBehaviour
 
                     if (receiveAnswer == 9 && audioecho3 == true)
                     {
-
-
                         audioecho3 = false;
-
-
                         mainAudio.PlayOneShot(goedmisselijk);
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
@@ -226,7 +248,6 @@ public class Quiz_Klachten : MonoBehaviour
                     }
                     if (receiveAnswer == 9 && !mainAudio.isPlaying && audioecho4 == true)
                     {
-
                         audioecho4 = false;
                         yield return new WaitForSeconds(2.0f);
                         mainAudio.PlayOneShot(audienceClap, 0.7F);
@@ -247,6 +268,10 @@ public class Quiz_Klachten : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
 
+                    }
+                    if (receiveAnswer == 8 || receiveAnswer == 10)
+                    {
+                        WrongAnswer();
                     }
 
                 }

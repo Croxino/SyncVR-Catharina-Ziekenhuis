@@ -1269,6 +1269,8 @@ MonoBehaviour:
   medicatieSel: {fileID: 0}
   klachten: {fileID: 0}
   klachtenSel: {fileID: 0}
+  eten: {fileID: 0}
+  etenSel: {fileID: 0}
   rayDefaultLength: 4
 --- !u!1001 &1253602624
 PrefabInstance:
@@ -1377,7 +1379,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8315491110548901960, guid: 0c8dd2c4ac53e304f87545c0c29d6263, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c8dd2c4ac53e304f87545c0c29d6263, type: 3}
 --- !u!1 &1271167979 stripped
 GameObject:

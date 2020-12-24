@@ -20,6 +20,13 @@ public class Audioscript_medicatie : MonoBehaviour
     private bool stopcor3 = true;
     private bool stopcor4 = true;
 
+    private bool wronganswer = false;
+    private bool wronganswer1 = false;
+    private bool wronganswer2 = false;
+    private bool wronganswer3 = false;
+    private bool wronganswer4 = false;
+    private bool wronganswer5 = false;
+
     private bool audioecho = true;
     private bool audioecho2 = true;
     public static bool audioecho3 = true;
@@ -194,6 +201,7 @@ public class Audioscript_medicatie : MonoBehaviour
     IEnumerator Quiz()
     {
 
+
         if (!introAudio.isPlaying)
         {
             if (answerA == false)
@@ -210,7 +218,23 @@ public class Audioscript_medicatie : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
 
+
+
                     }
+                    if (receiveAnswer == 10 && wronganswer == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer = true;
+                        animations.Play("Wrong");
+                    }
+
+                    if (receiveAnswer == 9 && wronganswer1 == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer1 = true;
+                        animations.Play("Wrong");
+                    }
+
 
 
 
@@ -240,6 +264,20 @@ public class Audioscript_medicatie : MonoBehaviour
                         animations.Play("talking");
 
 
+                    }
+
+                    if (receiveAnswer == 10 && wronganswer2 == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer2 = true;
+                        animations.Play("Wrong");
+                    }
+
+                    if (receiveAnswer == 8 && wronganswer3 == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer3 = true;
+                        animations.Play("Wrong");
                     }
 
 
@@ -288,6 +326,20 @@ public class Audioscript_medicatie : MonoBehaviour
                         yield return new WaitForSeconds(4.5f);
                         animations.Play("talking");
 
+                    }
+
+                    if (receiveAnswer == 10 && wronganswer4 == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer4 = true;
+                        animations.Play("Wrong");
+                    }
+
+                    if (receiveAnswer == 9 && wronganswer5 == false)
+                    {
+                        introAudio.PlayOneShot(foutantwoord);
+                        wronganswer5 = true;
+                        animations.Play("Wrong");
                     }
 
                 }

@@ -1169,11 +1169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cd94791c3fc6446b4f34066a2dd8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degreesPerSecond: 0
-  amplitude: 0.03
-  frequency: 1
-  posOffset: {x: 0, y: 0, z: 0}
-  tempPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1108759012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1325,6 +1320,8 @@ MonoBehaviour:
   medicatieSel: {fileID: 0}
   klachten: {fileID: 0}
   klachtenSel: {fileID: 0}
+  eten: {fileID: 0}
+  etenSel: {fileID: 0}
   rayDefaultLength: 4
 --- !u!1 &1357576334
 GameObject:
@@ -9212,13 +9209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b970da7635f374eae438666870b9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introAudio: {fileID: 0}
-  intro: {fileID: 8300000, guid: 23d85193a3150d543bd92c3983e972ce, type: 3}
-  stopcor: 1
-  quizboard: {fileID: 2548779817222079821}
-  fader: {fileID: 1565532911}
-  anim: {fileID: 0}
-  fadeout: {fileID: 0}
 --- !u!95 &1813578462667998939
 Animator:
   serializedVersion: 3
@@ -13005,7 +12995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2559424394961216515
 GameObject:
   m_ObjectHideFlags: 0
@@ -32912,6 +32902,7 @@ MonoBehaviour:
   goedmisselijk: {fileID: 8300000, guid: 79e2a2106fc8918469a871fe1c1c6f4e, type: 3}
   audienceClap: {fileID: 8300000, guid: 124d708b8273af046af5e89312070aa6, type: 3}
   eindemodule: {fileID: 8300000, guid: 375460988fb2911419a26c7fce2aa3ba, type: 3}
+  foutantwoord: {fileID: 8300000, guid: 6365e3c6264c13f4ca21a9dc9c5df431, type: 3}
   Confetti: {fileID: 646412846}
   quizboard: {fileID: 2548779817222079821}
   fader: {fileID: 1565532911}
