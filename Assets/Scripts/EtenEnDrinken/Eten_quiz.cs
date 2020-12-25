@@ -15,7 +15,10 @@ public class Eten_quiz : MonoBehaviour
     private bool audioecho2 = true;
     private bool audioecho3 = true;
     public bool mainaudioecho;
+
     public int receiveAnswer;
+    public int currentQuestion = 1;
+
     AudioSource mainAudio;
     public AudioClip fosfaatQuiz;
     public AudioClip fosfaatGoed;
@@ -30,6 +33,8 @@ public class Eten_quiz : MonoBehaviour
     private GameObject animD;
     private Animator fadeout;
     private Animator animations;
+    public AudioClip foutantwoord;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,10 +63,20 @@ public class Eten_quiz : MonoBehaviour
         StartCoroutine("Quiz");
         StartCoroutine("Playquestions");
 
+        if (!mainAudio.isPlaying)
+        {
+            Pvr_ControllerDemo.answerholder = 0;
 
+        }
     }
 
+    private void WrongAnswer()
+    {
+        mainAudio.PlayOneShot(foutantwoord);
+        animations.Play("Wrong");
+        Pvr_ControllerDemo.answerholder = 0;
 
+    }
 
 
     IEnumerator Playquestions()
@@ -93,7 +108,7 @@ public class Eten_quiz : MonoBehaviour
     {
         if (!mainAudio.isPlaying)
         {
-            if (question1 == false)
+            if (currentQuestion == 1)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = fosfaat)
                 {
@@ -110,10 +125,12 @@ public class Eten_quiz : MonoBehaviour
                         yield return new WaitForSeconds(9.0f);
                         question2 = true;
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol;
+                        currentQuestion++;
+}
 
-
-
-
+                    if (receiveAnswer == 8 || receiveAnswer == 10)
+                    {
+                        WrongAnswer();
                     }
 
                 }
@@ -123,7 +140,7 @@ public class Eten_quiz : MonoBehaviour
 
         if (!mainAudio.isPlaying)
         {
-            if (question2 == true)
+            if (currentQuestion == 2)
             {
 
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol)
@@ -168,6 +185,10 @@ public class Eten_quiz : MonoBehaviour
                         animations.Play("talking");
                     }
 
+                    if (receiveAnswer == 10 || receiveAnswer == 9)
+                    {
+                        WrongAnswer();
+                    }
                 }
             }
         }

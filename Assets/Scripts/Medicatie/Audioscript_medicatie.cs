@@ -20,12 +20,6 @@ public class Audioscript_medicatie : MonoBehaviour
     private bool stopcor3 = true;
     private bool stopcor4 = true;
 
-    private bool wronganswer = false;
-    private bool wronganswer1 = false;
-    private bool wronganswer2 = false;
-    private bool wronganswer3 = false;
-    private bool wronganswer4 = false;
-    private bool wronganswer5 = false;
 
     private bool audioecho = true;
     private bool audioecho2 = true;
@@ -49,6 +43,7 @@ public class Audioscript_medicatie : MonoBehaviour
 
 
     public int receiveAnswer;
+    public int currentQuestion = 1;
 
     public Renderer quizBoard;
     public Texture vitamineQuiz;
@@ -94,19 +89,30 @@ public class Audioscript_medicatie : MonoBehaviour
     {
         StartCoroutine("PlayWelkom");
         StartCoroutine("PlayAudio");
+        receiveAnswer = Pvr_ControllerDemo.answerholder;
 
         if (!introAudio.isPlaying)
         {
             animations.Play("Idle");
+            Pvr_ControllerDemo.answerholder = 0;
         }
 
-        receiveAnswer = Pvr_ControllerDemo.answerholder;
+
         Debug.Log("Holding answer " + receiveAnswer);
 
         StartCoroutine("Quiz");
 
 
     }
+
+    private void WrongAnswer()
+    {
+        introAudio.PlayOneShot(foutantwoord);
+        animations.Play("Wrong");
+        Pvr_ControllerDemo.answerholder = 0;
+
+    }
+
 
     IEnumerator PlayWelkom()
     {
@@ -204,7 +210,7 @@ public class Audioscript_medicatie : MonoBehaviour
 
         if (!introAudio.isPlaying)
         {
-            if (answerA == false)
+            if (currentQuestion == 1)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = vitamineQuiz)
                 {
@@ -217,22 +223,14 @@ public class Audioscript_medicatie : MonoBehaviour
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
+                        currentQuestion++;
 
 
 
                     }
-                    if (receiveAnswer == 10 && wronganswer == false)
+                    if (receiveAnswer == 10 || receiveAnswer == 9)
                     {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer = true;
-                        animations.Play("Wrong");
-                    }
-
-                    if (receiveAnswer == 9 && wronganswer1 == false)
-                    {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer1 = true;
-                        animations.Play("Wrong");
+                        WrongAnswer();
                     }
 
 
@@ -245,7 +243,7 @@ public class Audioscript_medicatie : MonoBehaviour
 
         if (!introAudio.isPlaying)
         {
-            if (answerB == true)
+            if (currentQuestion == 2)
             {
 
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = bloedsuikerQuiz)
@@ -262,22 +260,14 @@ public class Audioscript_medicatie : MonoBehaviour
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
+                        currentQuestion++;
 
 
                     }
 
-                    if (receiveAnswer == 10 && wronganswer2 == false)
+                    if (receiveAnswer == 10 || receiveAnswer == 8)
                     {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer2 = true;
-                        animations.Play("Wrong");
-                    }
-
-                    if (receiveAnswer == 8 && wronganswer3 == false)
-                    {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer3 = true;
-                        animations.Play("Wrong");
+                        WrongAnswer();
                     }
 
 
@@ -287,7 +277,7 @@ public class Audioscript_medicatie : MonoBehaviour
 
         if (!introAudio.isPlaying)
         {
-            if (answerC == true)
+            if (currentQuestion == 3)
             {
 
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = pijnstillerQuiz)
@@ -303,6 +293,7 @@ public class Audioscript_medicatie : MonoBehaviour
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
+                        Pvr_ControllerDemo.answerholder = 8;
 
                     }
                     if (receiveAnswer == 8 && !introAudio.isPlaying && audioecho3 == true)
@@ -328,18 +319,9 @@ public class Audioscript_medicatie : MonoBehaviour
 
                     }
 
-                    if (receiveAnswer == 10 && wronganswer4 == false)
+                    if (receiveAnswer == 10 || receiveAnswer == 9)
                     {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer4 = true;
-                        animations.Play("Wrong");
-                    }
-
-                    if (receiveAnswer == 9 && wronganswer5 == false)
-                    {
-                        introAudio.PlayOneShot(foutantwoord);
-                        wronganswer5 = true;
-                        animations.Play("Wrong");
+                        WrongAnswer();
                     }
 
                 }

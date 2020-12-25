@@ -39603,6 +39603,7 @@ MonoBehaviour:
   foutantwoord: {fileID: 8300000, guid: 6365e3c6264c13f4ca21a9dc9c5df431, type: 3}
   welkom: {fileID: 8300000, guid: f327af810539a8a4e92d52e0cfb237ad, type: 3}
   receiveAnswer: 0
+  currentQuestion: 1
   quizBoard: {fileID: 1271167982}
   vitamineQuiz: {fileID: 2800000, guid: e4ceb1ca50b59974ab24e2adfce6d7fc, type: 3}
   bloedsuikerQuiz: {fileID: 2800000, guid: 39857329905436e4f9584ef71302f197, type: 3}
