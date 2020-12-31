@@ -188,6 +188,7 @@ public class Audioscript_medicatie : MonoBehaviour
             {
                 quizboard.SetActive(true);
                 introAudio.PlayOneShot(VitamineQuiz);
+                animations.Play("talking");
                 quiz = false;
             }
 
