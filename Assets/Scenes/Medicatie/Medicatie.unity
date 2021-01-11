@@ -1420,6 +1420,7 @@ GameObject:
   - component: {fileID: 1357576337}
   - component: {fileID: 1357576336}
   - component: {fileID: 1357576335}
+  - component: {fileID: 1357576339}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1434,7 +1435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357576334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -1507,6 +1508,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1357576339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357576334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c941c13b9de5e4aa238376a9448a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  pointer: {fileID: 0}
+  sortOrder: 0
 --- !u!1 &1464949651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1272913896933488068, guid: 3de12b36775de7b4090e5303bf1533da,
@@ -21854,6 +21874,75 @@ Transform:
   m_Father: {fileID: 8632649657845113002}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4159728449638168181
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0733194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2973727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.9695578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993928, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159728449926993934, guid: 9bb38bb1e182e5a4384f65ee97198b2d,
+        type: 3}
+      propertyPath: m_Name
+      value: ambience music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9bb38bb1e182e5a4384f65ee97198b2d, type: 3}
 --- !u!23 &4162613715300141534
 MeshRenderer:
   m_ObjectHideFlags: 0
