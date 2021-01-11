@@ -115,7 +115,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
         }
     }
 
-    
+    //This is the pick-up function. It makes the selected object move towards the user.
     IEnumerator SmoothMove()
     {
         while (dragObj.position != controller1.transform.position)
@@ -127,6 +127,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
         }
     }
 
+    //This function sends an int to other scripts so we know what layer is selected. it's used for the quiz part of the modules.
     IEnumerator SendAnswer()
     {
         answerholder = hit.transform.gameObject.layer;
@@ -271,6 +272,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                         }
                     }
+                    //Checks for all objects on layer "Water" then makes the object come towards the user
                     if (1 <<hit.transform.gameObject.layer == LayerMask.GetMask("Water"))
                     {
                         if (!noClick)
@@ -297,7 +299,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         }
 
                     }
-
+                    //Checks for all objects on layer "Food" then makes the object come towards the user
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("Food"))
                     {
 
@@ -321,7 +323,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         }
 
                     }
-
+                    //For the Quiz part of the modules. If the selected layer is "AnswerA" it will change the material of the selected layer to a transparent green and set all other materials to invisible.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("AnswerA"))
                     {
                         if (!noClick)
@@ -340,7 +342,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log("holding" + answerholder);
 
 
-
+                        //If the layer is hit (a button is pressed) the layer int will be send.
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;
@@ -358,7 +360,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
-
+                    //For the Quiz part of the modules. If the selected layer is "AnswerB" it will change the material of the selected layer to a transparent green and set all other materials to invisible.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("AnswerB"))
                     {
                         if (!noClick)
@@ -375,7 +377,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.layer);
 
 
-
+                        //If the layer is hit (a button is pressed) the layer int will be send.
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;
@@ -393,7 +395,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
-
+                    //For the Quiz part of the modules. If the selected layer is "AnswerC" it will change the material of the selected layer to a transparent green and set all other materials to invisible.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("AnswerC"))
                     {
                         if (!noClick)
@@ -411,7 +413,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.layer);
 
 
-
+                        //If the layer is hit (a button is pressed) the layer int will be send.
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;
@@ -428,7 +430,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         }
 
                     }
-
+                    //If nothing is selected all answer layers will go back to normal.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("nothing"))
                     {
                         var AnswerA = GameObject.Find("AnswerA");
@@ -446,6 +448,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
+                    //If "general" is selected highlight it.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("general"))
                     {
 
@@ -460,7 +463,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
 
                     }
-
+                    //If "UI" is selected all "general" layes will go back to normal.
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("UI"))
                     {
                         var flush = GameObject.Find("flush");
@@ -473,7 +476,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
-
+                    //When "general" is hit send answer.
                     if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0) && 1 << hit.transform.gameObject.layer == LayerMask.GetMask("general"))
                     {
 
@@ -487,18 +490,15 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                         dragObj.position = new Vector3(referenceObj.transform.position.x + disX, referenceObj.transform.position.y + disY, hit.transform.position.z);
                         Debug.Log(dragObj.transform.position.z);
-                        Debug.Log("You Flushed");
                         StartCoroutine("SendAnswer");
                     }
 
-                    //if (pillsdestroyed == false)
-                    //{
-                    //    StopCoroutine("SmoothMove");
-                    //}
+
 
 
                     lastHit = hit.transform;
 
+                    //Highlighter for pausemenu
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("resume"))
                     {
                         if (!noClick)
@@ -529,7 +529,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         }
 
                     }
-
+                    //Highlighter for pausemenu
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("home"))
                     {
                         if (!noClick)
@@ -561,7 +561,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
-
+                    //Highlighter for startmenu
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("medicatie"))
                     {
                         if (!noClick)
@@ -577,7 +577,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.layer);
 
 
-
+                        //loads the hit scene
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;
@@ -595,6 +595,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
+                    //Highlighter for startmenu
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("klachten"))
                     {
                         if (!noClick)
@@ -610,7 +611,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.layer);
 
 
-
+                        //loads the hit scene
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;
@@ -628,6 +629,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
                     }
 
+                    //Highlighter for startmenu
                     if (1 << hit.transform.gameObject.layer == LayerMask.GetMask("eten"))
                     {
                         if (!noClick)
@@ -643,7 +645,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.layer);
 
 
-
+                        //loads the hit scene
                         if (Controller.UPvr_GetKeyClick(0, Pvr_KeyCode.TRIGGER) || Controller.UPvr_GetKeyClick(1, Pvr_KeyCode.TRIGGER) || Input.GetMouseButtonDown(0))
                         {
                             referenceObj.transform.position = hit.point;

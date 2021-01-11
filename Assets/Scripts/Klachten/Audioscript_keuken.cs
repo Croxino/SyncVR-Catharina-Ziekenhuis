@@ -22,7 +22,6 @@ public class Audioscript_keuken : MonoBehaviour
     void Start()
     {
         introAudio = GetComponent<AudioSource>();
-        //Debug.Log(baxter.GetComponent<MeshRenderer>().sharedMaterials[4]);
 
         anim = GameObject.Find("fader");
         fadeout = anim.GetComponent<Animator>();

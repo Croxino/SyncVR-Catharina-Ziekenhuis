@@ -107,16 +107,16 @@ public class Audioscript_medicatie : MonoBehaviour
 
     private void WrongAnswer()
     {
+        //when the wrong answer is given. Play animation and audio and set the current answer you are holding back to 0. this is to prevent a loop.
         introAudio.PlayOneShot(foutantwoord);
         animations.Play("Wrong");
         Pvr_ControllerDemo.answerholder = 0;
-
     }
 
 
     IEnumerator PlayWelkom()
     {
-
+        //Plays when module is started.
         if (stopcor == true)
         {
             animations.Play("talking");
@@ -128,7 +128,9 @@ public class Audioscript_medicatie : MonoBehaviour
 
     }
 
-    IEnumerator PlayAudio()
+    //This function plays all the audio when a certain condition is triggered. I've implemented some delays in seconds so certain triggers don't play immediately.
+    // You might notice there are a lot of booleans that are true first and then set to false. This is because without it the audio will keep triggering every frame.
+    IEnumerator PlayAudio() 
     {
         calltodestroy = DestroyThis.activePills;
         if (calltodestroy == false && !introAudio.isPlaying && stopcor2 == true)
@@ -149,9 +151,8 @@ public class Audioscript_medicatie : MonoBehaviour
             introAudio.PlayOneShot(naaldpijn);
             animations.Play("talking");
 
-
-
-            headhit.gameObject.SetActive(true);
+            //activates a game object that makes the screen red and changes the texture on the dialysis machine
+            headhit.gameObject.SetActive(true); 
             baxter.GetComponent<MeshRenderer>().materials[4].mainTexture = textures;
             tube.transform.position = new Vector3(-1f, -0.3f, 0.4987f);
 
@@ -173,6 +174,7 @@ public class Audioscript_medicatie : MonoBehaviour
 
             if (isCreated == false)
             {
+                //instantiates a game object and destroys it again after 22 seconds when the audio is done playing.
                 clone = Instantiate(ibuprofen, ibuprofen.transform.position, ibuprofen.transform.rotation);
                 isCreated = true;
 
@@ -205,9 +207,10 @@ public class Audioscript_medicatie : MonoBehaviour
 
     }
 
+    //This is the function for the quiz part. It activates a quizboard and depending on the currentQuestion the Quiz will change.
+    //The receiveAnswer variable checks if the user has selected the correct answer. The Pvr_ControllerDemo sends an int when a layer is hit.
     IEnumerator Quiz()
     {
-
 
         if (!introAudio.isPlaying)
         {
@@ -225,19 +228,11 @@ public class Audioscript_medicatie : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
                         currentQuestion++;
-
-
-
                     }
                     if (receiveAnswer == 10 || receiveAnswer == 9)
                     {
                         WrongAnswer();
                     }
-
-
-
-
-
                 }
             }
         }
@@ -262,16 +257,12 @@ public class Audioscript_medicatie : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
                         currentQuestion++;
-
-
                     }
 
                     if (receiveAnswer == 10 || receiveAnswer == 8)
                     {
                         WrongAnswer();
                     }
-
-
                 }
             }
         }
@@ -287,7 +278,6 @@ public class Audioscript_medicatie : MonoBehaviour
                     if (receiveAnswer == 8 && audioecho2 == true)
                     {
 
-
                         introAudio.PlayOneShot(paracetamol);
                         audioecho2 = false;
 
@@ -297,8 +287,9 @@ public class Audioscript_medicatie : MonoBehaviour
                         Pvr_ControllerDemo.answerholder = 8;
 
                     }
-                    if (receiveAnswer == 8 && !introAudio.isPlaying && audioecho3 == true)
+                    if (receiveAnswer == 8 && !introAudio.isPlaying && audioecho3 == true) 
                     {
+                        //This is the end of the quiz. When the explanation audio is done playing everything will be set to inactive and a reward will be played.
                         introAudio.PlayOneShot(audienceClap, 0.7F);
                         introAudio.PlayOneShot(eindemodule);
                         Confetti.SetActive(true);

@@ -48,7 +48,7 @@ public class Eten_quiz : MonoBehaviour
         fadeout.Play("FadeIn");
         animD = GameObject.Find("Baxter");
         animations = animD.GetComponent<Animator>();
-        // quizBoard.GetComponent<Renderer>().materials[1].mainTexture = vitamineQuiz;
+
 
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyThis : MonoBehaviour
 {
+    //destroys the pills
     public static bool activePills = true;
 
     // Start is called before the first frame update

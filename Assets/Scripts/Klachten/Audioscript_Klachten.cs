@@ -33,8 +33,6 @@ public class Audioscript_Klachten : MonoBehaviour
     {
         introAudio = GetComponent<AudioSource>();
 
-        //Debug.Log(baxter.GetComponent<MeshRenderer>().sharedMaterials[4]);
-
 
         des = new Vector3(-2f, 0.4f, 2.9f);
         desrot = Quaternion.Euler(0, -40, 0);
@@ -107,7 +105,7 @@ public class Audioscript_Klachten : MonoBehaviour
     }
 
 
-
+    // Moves Baxter to designated location.
     IEnumerator SmoothMove()
     {
         yield return new WaitForSeconds(15.0f);

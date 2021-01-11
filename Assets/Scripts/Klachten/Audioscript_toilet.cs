@@ -74,6 +74,7 @@ public class Audioscript_toilet : MonoBehaviour
 
         }
 
+        //Plays the toilet flushing animation and sound
         if (receiveAnswer == 12 && stopcor2 == true)
         {
             introAudio.PlayOneShot(flush);

@@ -92,6 +92,7 @@ public class Quiz_Klachten : MonoBehaviour
 
     private void StartNextQuestion()
     {
+        //starts next question if answer is correct.
         currentQuestion++;
         switch (currentQuestion)
         {

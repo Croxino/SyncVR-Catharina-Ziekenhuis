@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class rigidbodymanager : MonoBehaviour
 {
+    // This script manages the rigidbody of the food items. So that certain food options can't be taken first we have to disable the rigidbody
     public GameObject cheese;
     Collider cheeseCol;
     public GameObject hotdog;
