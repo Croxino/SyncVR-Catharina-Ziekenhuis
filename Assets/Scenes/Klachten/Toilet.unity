@@ -1700,7 +1700,7 @@ MonoBehaviour:
   delay: 0
   calltodestroy: 0
   flush: {fileID: 8300000, guid: e1953d82682833e439d2783d95c7f8c8, type: 3}
-  intro: {fileID: 8300000, guid: 750736d4bd55ad64093f712687a60df5, type: 3}
+  intro: {fileID: 8300000, guid: 7a5dc3a8b914f674ea73e3a8bcfdf697, type: 3}
   _image: {fileID: 0}
   flashscreen: 3
   textures: {fileID: 0}

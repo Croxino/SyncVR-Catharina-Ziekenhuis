@@ -4597,7 +4597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4fede9e9918a74eb8d45cf8297cc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intro: {fileID: 8300000, guid: 4bcb612e42622fa4ea81c1db44c86ff8, type: 3}
+  intro: {fileID: 8300000, guid: 2f6530c18bfc98640973c94828a72561, type: 3}
   fader: {fileID: 1375318949}
 --- !u!1 &1042686899771215974
 GameObject:

@@ -2277,5 +2277,25 @@ PrefabInstance:
       propertyPath: fader
       value: 
       objectReference: {fileID: 378343213}
+    - target: {fileID: 9029006341575500561, guid: 20f9f2285b38c3a4997db448bd7de9e9,
+        type: 3}
+      propertyPath: welkom
+      value: 
+      objectReference: {fileID: 8300000, guid: 599ed82a3df4ec64583651ba601782ac, type: 3}
+    - target: {fileID: 9029006341575500561, guid: 20f9f2285b38c3a4997db448bd7de9e9,
+        type: 3}
+      propertyPath: fosfaatB
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f72ee6c70bdcca4f8af844ffb0cea7e, type: 3}
+    - target: {fileID: 9029006341575500561, guid: 20f9f2285b38c3a4997db448bd7de9e9,
+        type: 3}
+      propertyPath: fosfaatReden
+      value: 
+      objectReference: {fileID: 8300000, guid: b0a17ea6dcb2f974db75c130f2f3d652, type: 3}
+    - target: {fileID: 9029006341575500561, guid: 20f9f2285b38c3a4997db448bd7de9e9,
+        type: 3}
+      propertyPath: bier
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3219624ad62d14f83218a890d5e33c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20f9f2285b38c3a4997db448bd7de9e9, type: 3}

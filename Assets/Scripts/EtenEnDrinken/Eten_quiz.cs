@@ -68,6 +68,8 @@ public class Eten_quiz : MonoBehaviour
             Pvr_ControllerDemo.answerholder = 0;
 
         }
+
+        Debug.Log(currentQuestion);
     }
 
     private void WrongAnswer()
@@ -92,7 +94,7 @@ public class Eten_quiz : MonoBehaviour
             mainAudio.PlayOneShot(fosfaatQuiz);
             animations.Play("talking");
             echo = false;
-            yield return new WaitForSeconds(6.0f);
+            yield return new WaitForSeconds(9.0f);
             quizboard.SetActive(true);
 
         }

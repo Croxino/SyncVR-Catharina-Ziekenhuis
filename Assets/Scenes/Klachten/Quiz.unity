@@ -32803,19 +32803,19 @@ MonoBehaviour:
   ontlasting: {fileID: 2800000, guid: a26ac78b16808f149bba451827d571b0, type: 3}
   currentQuestion: 0
   mainaudioecho: 0
-  intro: {fileID: 8300000, guid: 23d85193a3150d543bd92c3983e972ce, type: 3}
+  intro: {fileID: 8300000, guid: 6d25dba719cf146439fbabd1d76aed81, type: 3}
   receiveAnswer: 0
-  tablettenQuiz: {fileID: 8300000, guid: f36bf6bd0a2ab6048995d14b3502f1a8, type: 3}
-  goedtabletten: {fileID: 8300000, guid: f20f24e2e9ad9fd489664481587faf73, type: 3}
-  laxeerQuiz: {fileID: 8300000, guid: 50252536d270fc34ba19105ebfa76035, type: 3}
-  goedlaxeer: {fileID: 8300000, guid: b82fcb2e11f5bb94ea082c1c010cbece, type: 3}
-  ontlastingQuiz: {fileID: 8300000, guid: d537cec3498d58543a908fc7dcbfb38d, type: 3}
-  goedontlasting: {fileID: 8300000, guid: 1d909fbad69c50f4cabd0d4bb34ef11b, type: 3}
-  misselijkQuiz: {fileID: 8300000, guid: 444d52e6aec414c48b4911e48b7e335f, type: 3}
-  goedmisselijk: {fileID: 8300000, guid: 79e2a2106fc8918469a871fe1c1c6f4e, type: 3}
+  tablettenQuiz: {fileID: 8300000, guid: 37b09f931de93c54fb913c89c3aa9a98, type: 3}
+  goedtabletten: {fileID: 8300000, guid: 1c41c10d240211a498b55c01b88f550e, type: 3}
+  laxeerQuiz: {fileID: 8300000, guid: 955c2385451335f42ad61f52d268c9c3, type: 3}
+  goedlaxeer: {fileID: 8300000, guid: 4ed6c52bd1042d249aeb6e51393a30b4, type: 3}
+  ontlastingQuiz: {fileID: 8300000, guid: d11b1d47d93663b45bda48d03fc46beb, type: 3}
+  goedontlasting: {fileID: 8300000, guid: 0caa4d343b28e794cb87eed7e8ef871d, type: 3}
+  misselijkQuiz: {fileID: 8300000, guid: 5474539661b173341a4aab0a496501f9, type: 3}
+  goedmisselijk: {fileID: 8300000, guid: 23a6c8e0fc0024243aa18aef123ce079, type: 3}
   audienceClap: {fileID: 8300000, guid: 124d708b8273af046af5e89312070aa6, type: 3}
-  eindemodule: {fileID: 8300000, guid: 375460988fb2911419a26c7fce2aa3ba, type: 3}
-  foutantwoord: {fileID: 8300000, guid: 6365e3c6264c13f4ca21a9dc9c5df431, type: 3}
+  eindemodule: {fileID: 8300000, guid: d815050e7c1aa0e4f9d2509be5055e0d, type: 3}
+  foutantwoord: {fileID: 8300000, guid: d4ea593df66c434438d15a70438360a2, type: 3}
   Confetti: {fileID: 646412846}
   quizboard: {fileID: 2548779817222079821}
   fader: {fileID: 1565532911}

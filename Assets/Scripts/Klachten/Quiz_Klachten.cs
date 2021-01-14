@@ -130,7 +130,7 @@ public class Quiz_Klachten : MonoBehaviour
             mainAudio.PlayOneShot(intro);
             stopcor = false;
             animations.Play("talking");
-            yield return new WaitForSeconds(6.0f);
+            yield return new WaitForSeconds(8.0f);
             quizboard.SetActive(true);
             StartNextQuestion();
 
@@ -158,7 +158,7 @@ public class Quiz_Klachten : MonoBehaviour
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
 
-                        yield return new WaitForSeconds(13.0f);
+                        yield return new WaitForSeconds(14.0f);
                         StartNextQuestion();
 
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = laxeermiddelen;
@@ -186,7 +186,7 @@ public class Quiz_Klachten : MonoBehaviour
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
-                        yield return new WaitForSeconds(8.0f);
+                        yield return new WaitForSeconds(9.0f);
                         StartNextQuestion();
 
 
@@ -217,7 +217,7 @@ public class Quiz_Klachten : MonoBehaviour
                         animations.Play("Happy");
                         yield return new WaitForSeconds(1.5f);
                         animations.Play("talking");
-                        yield return new WaitForSeconds(10.0f);
+                        yield return new WaitForSeconds(12.0f);
                         StartNextQuestion();
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = misselijk;
 
