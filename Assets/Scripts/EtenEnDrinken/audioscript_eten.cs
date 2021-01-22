@@ -84,21 +84,22 @@ public class audioscript_eten : MonoBehaviour
             stopcor2 = false;
         }
 
-        if (pillsdestroyed == false && stopcor3 == true)
+        if (!introAudio.isPlaying && pillsdestroyed == false && stopcor3 == true)
         {
             introAudio.PlayOneShot(fosfaatReden);
             stopcor3 = false;
         }
 
-        if (hotdogdestroyed == false && cheesedestroyed == false && stopcor4 == true)
+        if (!introAudio.isPlaying && hotdogdestroyed == false && cheesedestroyed == false && stopcor4 == true)
         {
             introAudio.PlayOneShot(bier);
             stopcor4 = false;
         }
 
-        if (bottledestroyed == false)
+        if (!introAudio.isPlaying && bottledestroyed == false)
         {
             fadeout.Play("FadeOut");
+            yield return new WaitForSeconds(3.5f);
             SceneManager.LoadScene(9);
         }
 
@@ -106,29 +107,5 @@ public class audioscript_eten : MonoBehaviour
     }
 }
 
-    //IEnumerator PlayZiekenhuis()
-    //{
-
-    //    if (stopcor == true)
-    //    {
-    //        introAudio.PlayOneShot(dizzy);
-    //        stopcor = false;
-    //        //fadeout.Play("FadeOut");
-
-    //        yield return new WaitForSeconds(6.0f);
-    //        dizziness.Play("dizziness");
-    //        yield return new WaitForSeconds(3.0f);
-    //        dizziness.Play("New State");
-
-
-    //    }
-
-    //    if (!introAudio.isPlaying)
-    //    {
-    //        fadeout.Play("FadeOut");
-    //        SceneManager.LoadScene(3);
-    //    }
-    //    yield return null;
-
-    //}
+   
 

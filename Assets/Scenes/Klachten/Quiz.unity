@@ -32797,10 +32797,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quizBoard: {fileID: 4279479239493235089}
-  tabletten: {fileID: 2800000, guid: d65e35f14f5f206489337ad173b73465, type: 3}
-  misselijk: {fileID: 2800000, guid: 9e40e14386a9d04418202b2db6a0f10c, type: 3}
-  laxeermiddelen: {fileID: 2800000, guid: d6779276e0aa0ac45b311f0dc281f65d, type: 3}
-  ontlasting: {fileID: 2800000, guid: a26ac78b16808f149bba451827d571b0, type: 3}
+  tabletten: {fileID: 2800000, guid: b78b5b83dfc0c094c962208672652952, type: 3}
+  misselijk: {fileID: 2800000, guid: 1246ce5200ba25f45894eba5128ff209, type: 3}
+  laxeermiddelen: {fileID: 2800000, guid: dc7aa1fb66ef91d4fa2089e9d62188d2, type: 3}
+  ontlasting: {fileID: 2800000, guid: b67f6a16d68baab49ae9f0d357fcf3ae, type: 3}
   currentQuestion: 0
   mainaudioecho: 0
   intro: {fileID: 8300000, guid: 6d25dba719cf146439fbabd1d76aed81, type: 3}

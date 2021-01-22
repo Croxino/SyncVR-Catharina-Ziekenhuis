@@ -39778,9 +39778,9 @@ MonoBehaviour:
   receiveAnswer: 0
   currentQuestion: 1
   quizBoard: {fileID: 1271167982}
-  vitamineQuiz: {fileID: 2800000, guid: e4ceb1ca50b59974ab24e2adfce6d7fc, type: 3}
-  bloedsuikerQuiz: {fileID: 2800000, guid: 39857329905436e4f9584ef71302f197, type: 3}
-  pijnstillerQuiz: {fileID: 2800000, guid: ef25ac218267b374b83db3bd74eaff43, type: 3}
+  vitamineQuiz: {fileID: 2800000, guid: 54c6162f09d4ab14896c646d1cd7a82b, type: 3}
+  bloedsuikerQuiz: {fileID: 2800000, guid: c39881cc511f54545af0f0107fbd294b, type: 3}
+  pijnstillerQuiz: {fileID: 2800000, guid: 168000495cf9dbc4ca7085da9efc21b8, type: 3}
   baxter: {fileID: 3898270156340181701}
   glucosegevaar: {fileID: 2100000, guid: 0817bafed2519aa4a9ecb88310759f1a, type: 2}
   textures: {fileID: 2800000, guid: 84847d40f36c7df4cb760e6008f5f2b3, type: 3}

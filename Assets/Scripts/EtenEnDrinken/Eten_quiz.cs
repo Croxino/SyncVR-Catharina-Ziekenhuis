@@ -17,7 +17,7 @@ public class Eten_quiz : MonoBehaviour
     public bool mainaudioecho;
 
     public int receiveAnswer;
-    public int currentQuestion = 1;
+    public int cQuestion = 1;
 
     AudioSource mainAudio;
     public AudioClip fosfaatQuiz;
@@ -69,7 +69,7 @@ public class Eten_quiz : MonoBehaviour
 
         }
 
-        Debug.Log(currentQuestion);
+        Debug.Log(cQuestion);
     }
 
     private void WrongAnswer()
@@ -110,11 +110,11 @@ public class Eten_quiz : MonoBehaviour
     {
         if (!mainAudio.isPlaying)
         {
-            if (currentQuestion == 1)
+            if (cQuestion == 1)
             {
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = fosfaat)
                 {
-                    if (receiveAnswer == 9 && audioecho1 == true)
+                    if (receiveAnswer == 8 && audioecho1 == true)
                     {
                         mainAudio.PlayOneShot(fosfaatGoed);
                         audioecho1 = false;
@@ -127,10 +127,10 @@ public class Eten_quiz : MonoBehaviour
                         yield return new WaitForSeconds(9.0f);
                         question2 = true;
                         quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol;
-                        currentQuestion++;
+                        cQuestion++;
 }
 
-                    if (receiveAnswer == 8 || receiveAnswer == 10)
+                    if (receiveAnswer == 9 || receiveAnswer == 10)
                     {
                         WrongAnswer();
                     }
@@ -142,7 +142,7 @@ public class Eten_quiz : MonoBehaviour
 
         if (!mainAudio.isPlaying)
         {
-            if (currentQuestion == 2)
+            if (cQuestion == 2)
             {
 
                 if (quizBoard.GetComponent<Renderer>().materials[1].mainTexture = alcohol)
