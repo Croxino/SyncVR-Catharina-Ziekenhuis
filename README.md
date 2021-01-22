@@ -8,6 +8,9 @@ Unity version 2019.3.6f1
 
 PICO VR HEADSET.
 
+In Unity under Project Settings > Player > Other settings.
+Set Graphics API to OpenGLES3. The pico does not support the Vulcan API.
+
 
 ## Installation
 
